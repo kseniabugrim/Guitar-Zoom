@@ -1,0 +1,84 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="left">
+      <img [src]="'assets/images/logo.png'">
+      <a href="#" class="first-link">Home</a>
+      <a href="#">Shop</a>
+    </div>
+    <div class="right">
+      <button mat-button (click)="playSongs()">Play songs</button>
+      <img [src]="'assets/images/sign_in.png'" (click)="signIn()">
+    </div>
+  </div>
+  <div class="content">
+    <div class="info">
+      <div class="radio-block">
+        <div class="radio-buttons-wrapper">
+
+          <input id="radio1" type="radio" name="radio-group" checked>
+          <label for="radio1"></label>
+
+          <input id="radio2" type="radio" name="radio-group">
+          <label for="radio2"></label>
+
+          <input id="radio3" type="radio" name="radio-group">
+          <label for="radio3"></label>
+
+          <input id="radio4" type="radio" name="radio-group">
+          <label for="radio4"></label>
+        </div>
+        <img [src]="'assets/images/SCROLL.png'">
+      </div>
+      <div class="info-block">
+        <div class="title">
+          <span class="black">Guitar</span> <span class="blue">Lessons</span>
+          <p>for Real people</p>
+        </div>
+        <div class="questions-block">
+          <div class="top">How would you describe <span>Yourself?</span></div>
+          <div class="top-btns" [formGroup]="topForm">
+            <div class="mat-error" *ngIf="isClickedSignMeUp && topForm.invalid">Please select what describer you the most</div>
+            <input id="radio-1" type="radio" value="beginner" formControlName="level" name="level">
+            <label for="radio-1">
+
+              <span>I'm a beginner</span>
+            </label>
+
+            <input type="radio"  id="radio-2" value="not beginner" formControlName="level" name="level">
+            <label for="radio-2">
+
+              <span>I've been playing a while</span>
+            </label>
+          </div>
+          <div class="middle">What are you most interested in learning <br><span>right now?</span>
+            <div class="mat-error" *ngIf="isClickedSignMeUp && middleForm.invalid">Please select what describer you the most</div>
+          </div>
+          <div class="middle-btns" [formGroup]="middleForm">
+            <div *ngFor="let interest of interestArray; index as i" class="btn-wrapper">
+              <input id="radio-button-{{i}}" type="radio" value="{{ interest }}" formControlName="interest" name="interest">
+              <label for="radio-button-{{i}}">
+
+                <span>{{ interest }}</span>
+              </label>
+            </div>
+          </div>
+          <div class="bottom">
+            <button mat-button (click)="signMeUp()">Sign Me Up For Free Guitar Lessons</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="photo">
+      <img [src]="'assets/images/man_1.png'">
+    </div>
+    <div class="social">
+      <div class="links-wrapper">
+        <span>a</span>
+        <a href="#">Facebook</a>
+        <a href="#" class="instagram">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </div>
+</div>
+
